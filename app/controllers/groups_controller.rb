@@ -27,7 +27,14 @@ def update
 
     @group.update(group_params)
 
-    redirect_to groups_path, notice: "Update Siccess"
+    redirect_to groups_path, notice: "Update Success"
+
+def destroy
+   @group = Group.find(params[:id])
+   @group.destroy
+   flash[:alert] = "Group deleted"
+   redirect_to groups_path
+ end
 
   end
   private
